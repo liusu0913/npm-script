@@ -1,6 +1,6 @@
 {
   "name": "npm-script",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "npm-script",
   "main": "index.js",
   "dependencies": {},
@@ -18,10 +18,11 @@
     "rollup": "^1.8.0"
   },
   "scripts": {
+    "name": "echo npm_package_name",
     "mocha": "\n #开启测试 \n mocha test/",
     "precover": "\n #收集覆盖率之前把之前的覆盖率报告目录清理掉 \n rm -rf coverage",
     "cover": "\n #直接调用 nyc，让其生成 html 格式的覆盖率报告 \n nyc --reporter=html npm run mocha",
-    "postcover": "\n #清理掉临时文件，并且在浏览器中预览覆盖率报告 \n rm -rf .nyc_output && opn coverage/index.html"
+    "postcover": "\n #整理测试报告以版本号来进行们每次测试报告的文件归档 \n mkdir -p coverage_archive/$npm_package_version && cp -r coverage/* coverage_archive/$npm_package_version && rm -rf ./coverage && rm -rf ./.nyc_output"
   },
   "nyc": {
     "exclude": [
