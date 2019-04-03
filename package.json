@@ -1,0 +1,30 @@
+{
+  "name": "npm-script",
+  "version": "1.0.0",
+  "description": "npm-script",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "rollup": "^1.8.0"
+  },
+  "scripts": {
+    "eslint": "eslint src/*",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liusu0913/npm-script.git"
+  },
+  "author": "liusu0913",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liusu0913/npm-script/issues"
+  },
+  "homepage": "https://github.com/liusu0913/npm-script#readme"
+}
