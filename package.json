@@ -5,17 +5,28 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^5.15.3",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
+    "opn-cli": "^4.0.0",
     "rollup": "^1.8.0"
   },
   "scripts": {
-    "eslint": "eslint src/*",
-    "build": "rollup -c"
+    "mocha": "\n #开启测试 \n mocha test/",
+    "precover": "\n #收集覆盖率之前把之前的覆盖率报告目录清理掉 \n rm -rf coverage",
+    "cover": "\n #直接调用 nyc，让其生成 html 格式的覆盖率报告 \n nyc --reporter=html npm run mocha",
+    "postcover": "\n #清理掉临时文件，并且在浏览器中预览覆盖率报告 \n rm -rf .nyc_output && opn coverage/index.html"
+  },
+  "nyc": {
+    "exclude": [
+      "test/*"
+    ]
   },
   "repository": {
     "type": "git",
