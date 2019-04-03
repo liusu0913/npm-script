@@ -11,9 +11,14 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "npm-run-all": "^4.1.5",
     "rollup": "^1.8.0"
   },
   "scripts": {
+    "test:par": "\n #npm 并行执行多个命令 \n npm run eslint & npm run build & wait",
+    "test:ser": "\n #npm 串行执行多个命令 \n npm run eslint && npm run build",
+    "test:all-par": "\n #npm-run-all 并行执行多个命令 \n npm run all --parallel eslint build",
+    "test:all-ser": "\n #npm-run-all 串行执行多个命令 \n npm run all eslint build",
     "eslint": "eslint src/*",
     "build": "rollup -c"
   },
