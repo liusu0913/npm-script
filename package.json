@@ -6,6 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
+    "cpr": "^3.0.1",
     "eslint": "^5.15.3",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
@@ -13,8 +14,10 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "http-server": "^0.11.1",
+    "make-dir-cli": "^2.0.0",
     "mocha": "^6.0.2",
     "nyc": "^13.3.0",
+    "rimraf": "^2.6.3",
     "rollup": "^1.8.0"
   },
   "config": {
@@ -23,9 +26,9 @@
   "scripts": {
     "name": "echo npm_package_name",
     "mocha": "\n #开启测试 \n mocha test/",
-    "precover": "\n #收集覆盖率之前把之前的覆盖率报告目录清理掉 \n rm -rf coverage",
+    "precover": "\n #收集覆盖率之前把之前的覆盖率报告目录清理掉 \n rimraf coverage",
     "cover": "\n #直接调用 nyc，让其生成 html 格式的覆盖率报告 \n nyc --reporter=html npm run mocha",
-    "postcover": "\n #整理测试报告以版本号来进行们每次测试报告的文件归档 \n mkdir -p coverage_archive/$npm_package_version && cp -r coverage/* coverage_archive/$npm_package_version && rm -rf ./coverage && rm -rf ./.nyc_output && http-server coverage_archive/$npm_package_version -p $npm_package_config_port"
+    "postcover": "\n #整理测试报告以版本号来进行们每次测试报告的文件归档 \n make-dir coverage_archive/$npm_package_version && cpr coverage/* coverage_archive/$npm_package_version -o && rimraf ./coverage && rimraf ./.nyc_output && http-server coverage_archive/$npm_package_version -p $npm_package_config_port"
   },
   "nyc": {
     "exclude": [
