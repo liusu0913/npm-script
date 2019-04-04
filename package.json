@@ -1,12 +1,13 @@
 {
   "name": "npm-script",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "npm-script",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
     "cpr": "^3.0.1",
+    "cross-var-no-babel": "^1.2.0",
     "eslint": "^5.15.3",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
@@ -28,7 +29,7 @@
     "mocha": "\n #开启测试 \n mocha test/",
     "precover": "\n #收集覆盖率之前把之前的覆盖率报告目录清理掉（兼容版） \n rimraf coverage",
     "cover": "\n #直接调用 nyc，让其生成 html 格式的覆盖率报告 \n nyc --reporter=html npm run mocha",
-    "postcover": "\n #整理测试报告以版本号来进行们每次测试报告的文件归档,并整理文件目录（兼容版） \n make-dir coverage_archive/$npm_package_version && cpr coverage/* coverage_archive/$npm_package_version -o && rimraf ./coverage && rimraf ./.nyc_output && http-server coverage_archive/$npm_package_version -p $npm_package_config_port"
+    "postcover": "\n #整理测试报告以版本号来进行们每次测试报告的文件归档,并整理文件目录（兼容版） \n cross-var \"make-dir coverage_archive/$npm_package_version && cpr coverage/* coverage_archive/$npm_package_version -o && rimraf ./coverage && rimraf ./.nyc_output && http-server coverage_archive/$npm_package_version -p $npm_package_config_port \""
   },
   "nyc": {
     "exclude": [
