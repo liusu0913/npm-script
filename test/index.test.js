@@ -16,6 +16,9 @@ describe('hello-npm-script', () => {
         it('add(1, 2, 3) should return 6', () => {
             expect(add(1, 2, 3)).to.equal(6);
         });
+        it('add(1, 2, 3, 4) should return 6', () => {
+            expect(add(1, 2, 3, 4)).to.equal(10);
+        });
     });
 });
 
