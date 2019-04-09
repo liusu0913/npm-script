@@ -18,7 +18,7 @@
     "rollup": "^1.8.0"
   },
   "scripts": {
-    "mocha": "\n #开启测试 \n mocha test/",
+    "mocha": "\n #开启测试 \n mocha test/ --watch",
     "precover": "\n #收集覆盖率之前把之前的覆盖率报告目录清理掉 \n rm -rf coverage",
     "cover": "\n #直接调用 nyc，让其生成 html 格式的覆盖率报告 \n nyc --reporter=html npm run mocha",
     "postcover": "\n #清理掉临时文件，并且在浏览器中预览覆盖率报告 \n rm -rf .nyc_output && opn coverage/index.html"
