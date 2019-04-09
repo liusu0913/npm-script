@@ -12,19 +12,17 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "http-server": "^0.11.1",
+    "livereload": "^0.7.0",
     "mocha": "^6.0.2",
     "npm-run-all": "^4.1.5",
     "onchange": "^5.2.0",
     "rollup": "^1.8.0"
   },
   "scripts": {
-    "test": "mocha test/",
-    "watch:test": "npm run test -- --watch",
-    "lint": "eslint src/*",
-    "watch:lint": "onchange -i \"**/*.js\" -- npm run lint",
-    "build": "rollup -c",
-    "watch": "npm-run-all --parallel watch:*",
-    "postwatch": "npm run build"
+    "client": "npm-run-all --parallel client:*",
+    "client:reload-server": "livereload src/",
+    "client:static-server": "http-server src/"
   },
   "repository": {
     "type": "git",
