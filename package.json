@@ -16,13 +16,11 @@
   },
   "scripts": {
     "eslint": "eslint src/*",
-    "build": "rollup -c",
-    "precommit": "npm run lint",
-+    "prepush": "npm run test"
+    "build": "rollup -c"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm run eslint"
     }
   },
   "repository": {
