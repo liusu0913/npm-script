@@ -16,7 +16,9 @@
   },
   "scripts": {
     "eslint": "eslint src/*",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "precommit": "npm run lint",
++    "prepush": "npm run test"
   },
   "husky": {
     "hooks": {
