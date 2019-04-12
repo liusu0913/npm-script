@@ -5,5 +5,3 @@ module.exports = function (...rest) {
     }
     return sum;
 };
-
-let a
