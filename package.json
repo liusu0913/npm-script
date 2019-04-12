@@ -23,12 +23,12 @@
   },
   "scripts": {
     "eslint": "eslint src/*",
-    "prebuild": "\n #打包之前删除dist打包文件目录 \n rm -rf dist/*",
-    "build:img": "\n #打包图片 \n imagemin src/img/* --out-dir=dist/img",
-    "build:js": "\n #打包js \n rollup -c",
-    "build:css": "\n #打包css\n scripty",
+    "prebuild": "\n #打包之前删除dist打包文件目录并且付权限 \n rm -rf dist/* && chmod -R a+x scripts",
+    "build:img": "scripty ",
+    "build:js": "scripty",
+    "build:css": "scripty",
     "build:hash": "scripty",
-    "build": "npm-run-all build:img build:js build:css build:hash"
+    "build": "scripty"
   },
   "repository": {
     "type": "git",
