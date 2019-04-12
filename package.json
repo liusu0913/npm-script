@@ -5,17 +5,30 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "cssmin": "^0.4.3",
     "eslint": "^5.15.3",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "rollup": "^1.8.0"
+    "hashmark": "^5.0.0",
+    "imagemin-cli": "^4.0.1",
+    "less": "^3.9.0",
+    "npm-run-all": "^4.1.5",
+    "replaceinfiles": "^1.1.4",
+    "rollup": "^1.8.0",
+    "rollup-plugin-terser": "^4.0.4",
+    "scripty": "^1.9.1"
   },
   "scripts": {
     "eslint": "eslint src/*",
-    "build": "rollup -c"
+    "prebuild": "\n #打包之前删除dist打包文件目录并且付权限 \n rm -rf dist/* && chmod -R a+x scripts",
+    "build:img": "scripty ",
+    "build:js": "scripty",
+    "build:css": "scripty",
+    "build:hash": "scripty",
+    "build": "scripty"
   },
   "repository": {
     "type": "git",
